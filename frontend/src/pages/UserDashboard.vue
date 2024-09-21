@@ -36,7 +36,7 @@
         <q-btn type="submit" label="Add new upload" color="accent" />
       </q-card-section>
 
-      <!-- <q-card-section>
+      <q-card-section>
         <q-list>
           <q-item v-for="upload in userStore.user.uploads" :key="upload.id">
             <q-item-section>
@@ -51,7 +51,7 @@
             </q-item-section>
           </q-item>
         </q-list>
-      </q-card-section> -->
+      </q-card-section>
     </q-card>
   </div>
   <!-- log out button -->
