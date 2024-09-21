@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Upload;
 use Illuminate\Http\Request;
+use App\Http\Resources\UploadResource;
 
 class UploadController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Upload::class, 'upload');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        // show all for the specific user by using eloquent relationship
+        $userUploads = auth()->user()->uploads;
+        return UploadResource::collection($userUploads);
+
+
     }
 
     /**
@@ -36,7 +45,10 @@ class UploadController extends Controller
      */
     public function show(Upload $upload)
     {
-        //
+      
+       $upload= Upload::find($upload);
+
+       return new UploadResource($upload);
     }
 
     /**

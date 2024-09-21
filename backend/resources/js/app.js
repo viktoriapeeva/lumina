@@ -1,6 +1,7 @@
 import "./bootstrap";
 
 import { createApp } from "vue";
+import axios from "axios";
 
 import Example from "./components/Example.vue";
 

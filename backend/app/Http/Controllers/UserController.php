@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+    
+       return UserResource::collection(User::all());
     }
 
     /**
@@ -24,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -38,9 +40,12 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+       $user= User::find($user->id);
+       $user->with('uploads');
+
+        return new UserResource($user);
     }
 
     /**

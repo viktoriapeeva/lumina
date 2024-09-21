@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'development'),
 
     /*
     |--------------------------------------------------------------------------
@@ -160,6 +160,8 @@ return [
          * Package Service Providers...
          */
 
+         Illuminate\Auth\AuthServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -168,6 +170,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+         
     ])->toArray(),
 
     /*

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,9 +16,9 @@ class AuthController extends Controller
             $user = Auth::user();
 
             // Check if the user is active
-            if (! $user->is_active) {
-                return response()->json(['error' => 'This account has been deactivated.'], 401);
-            }
+            // if (! $user->is_active) {
+            //     return response()->json(['error' => 'This account has been deactivated.'], 401);
+            // }
 
             $token = $user->createToken('authToken')->plainTextToken;
 
