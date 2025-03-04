@@ -1,0 +1,31 @@
+.feed-container {
+}
+
+.page-container {
+  padding: 60px;
+  max-height: max-content;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: row;
+  align-items: self-start;
+  justify-content: space-between;
+}
+
+.user-details-container {
+  display: flex;
+  width: 60%;
+}
+
+.user-info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image-container {
+  margin-right: 20px;
+  width: 30%;
+  height: 30%;
+}

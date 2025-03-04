@@ -8,21 +8,31 @@ const routes = [
         name: "Login",
         component: () => import("pages/LoginPage.vue"),
       },
+      {
+        path: "register",
+        name: "Register",
+        component: () => import("pages/RegisterPage.vue"),
+      },
     ],
   },
   {
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      // {
-      //   path: "",
-      //   name: "home",
-      //   component: () => import("pages/IndexPage.vue"),
-      // },
       {
-        path: "",
+        path: "/",
         name: "home",
+        component: () => import("pages/HomePage.vue"),
+      },
+      {
+        path: "/dashboard",
+        name: "dashboard",
         component: () => import("pages/UserDashboard.vue"),
+      },
+      {
+        path: "landing",
+        name: "Landing",
+        component: () => import("pages/IndexPage.vue"),
       },
     ],
   },

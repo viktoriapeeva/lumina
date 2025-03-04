@@ -63,4 +63,25 @@ class UploadPolicy
     {
         return true;
     }
+
+    public function like(User $user, Upload $upload): bool
+    {
+        return true;
+    }
+
+    public function dislike(User $user, Upload $upload): bool
+    {
+        return true;
+    }
+
+    public function favourite(User $user, Upload $upload): bool
+    {
+        return true;
+    }
+
+    public function discover(User $user, Upload $upload): bool
+    {
+        return true;
+    }
+
 }

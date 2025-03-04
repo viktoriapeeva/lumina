@@ -23,6 +23,19 @@ export const useAuthStore = defineStore("auth", {
         this.isLoading = false;
       }
     },
+    async register(formData) {
+      try {
+        this.isLoading = true;
+        await AuthService.register(formData);
+        const user = await AuthService.fetchUser();
+        this.user = user;
+      } catch (error) {
+        console.error(error);
+        this.user = null;
+      } finally {
+        this.isLoading = false;
+      }
+    },
     async getUser() {
       try {
         this.isLoading = true;

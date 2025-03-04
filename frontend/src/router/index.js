@@ -45,7 +45,7 @@ export default route(function (/* { store, ssrContext } */) {
       if (to.path !== "/auth/login") {
         next("/auth/login");
       } else {
-        next("");
+        next("/dashboard");
       }
     } else {
       next();

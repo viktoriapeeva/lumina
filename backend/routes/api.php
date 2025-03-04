@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\UserUploadFavouriteController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +20,9 @@ use App\Http\Controllers\UploadController;
 
 
 Route::post('/auth/login', [AuthController::class, 'login']);
+Route::post('/auth/register', [AuthController::class, 'register']);
+
+
 Route::middleware([
     'auth:sanctum',
 ])->group(function () {
@@ -29,6 +33,7 @@ Route::middleware([
         ]);
     });
 
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
   
     Route::group(['prefix'=> 'users'], function(){
         Route::get('/', [UserController::class, 'index']);
@@ -37,14 +42,18 @@ Route::middleware([
         Route::put('/{user}', [UserController::class, 'update']);
         Route::delete('/{user}', [UserController::class, 'destroy']);
     });
-    
+
     Route::group(['prefix'=> 'uploads'], function(){
         Route::get('/', [UploadController::class, 'index']);
-        Route::get('/{upload}', [UploadController::class, 'show']);
+        Route::get('/discover', [UploadController::class, 'discover']);
         Route::post('/', [UploadController::class, 'store']);
         Route::put('/{upload}', [UploadController::class, 'update']);
         Route::delete('/{upload}', [UploadController::class, 'destroy']);
-    
+        Route::put('/{upload}/like', [UploadController::class, 'like']);
+        Route::delete('/{upload}/dislike', [UploadController::class, 'dislike']);
+        Route::get('/favourites', [UploadController::class, 'getAllFavourites']);
+        Route::put('/{upload}/favourite', [UploadController::class, 'favourite']);
+        Route::delete('/{upload}/unfavourite', [UploadController::class, 'unfavourite']);
     });
     
 });

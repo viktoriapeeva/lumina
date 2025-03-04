@@ -4,8 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\UploadResource;
 
-class UploadResource extends JsonResource
+class UserUploadFavouriteResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +17,9 @@ class UploadResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'path' => $this->path
+            'user_id' => $this->user_id,
+            'upload_id' => $this->upload_id,
+            'upload' => new UploadResource($this->upload)
         ];
     }
 }

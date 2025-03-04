@@ -23,7 +23,6 @@ class UploadFactory extends Factory
             'name' => $this->faker->word(),
             'size' => $this->faker->randomNumber(),
             'likes' => $this->faker->randomNumber(),
-            'dislikes' => $this->faker->randomNumber(),
             'saves' => $this->faker->randomNumber(),
             'shares' => $this->faker->randomNumber(),
             
