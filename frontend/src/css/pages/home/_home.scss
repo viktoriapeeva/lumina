@@ -1,5 +1,5 @@
 .image-container {
-  margin: 6px;
+  margin: 5px;
 }
 
 .image-grid {
@@ -8,4 +8,18 @@
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: row;
+}
+
+.image-container .q-btn {
+  visibility: hidden;
+}
+
+.image-container:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s;
+}
+
+.image-container:hover .q-btn {
+  visibility: visible;
+  cursor: pointer;
 }
