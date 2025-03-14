@@ -15,7 +15,6 @@ class Upload extends Model
         'type',
         'size',
         'likes',
-        'dislikes',
         'saves',
         'shares',
         'user_id',

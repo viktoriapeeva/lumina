@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+    
+       return UserResource::collection(User::all());
     }
 
     /**
@@ -24,23 +26,38 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        
+        $validated= $request->validated();
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        return response()->json([
+            'message' => 'User created successfully',
+            'data' => new UserResource($user)
+        ], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+       $user= User::find($user->id);
+       $user->with('uploads');
+
+        return new UserResource($user);
     }
 
     /**
