@@ -1,5 +1,11 @@
 .image-container {
-  margin-right: 20px;
-  width: 100px;
-  height: 100px;
+  margin: 6px;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: row;
 }

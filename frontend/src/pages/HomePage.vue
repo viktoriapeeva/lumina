@@ -10,9 +10,10 @@
           class="q-ma-md fixed-center"
         />
       </div>
-      <div v-else>
+      <div v-else class="image-grid">
         <div class="image-container" v-for="upload in uploads" :key="upload.id">
-          <FeedBox :upload="upload" />
+          <UploadBox :upload="upload" />
+          <!-- <FeedBox :upload="upload" /> -->
         </div>
       </div>
     </q-card>
@@ -24,6 +25,7 @@ import { computed, onMounted, ref } from "vue";
 import { useAuthStore } from "../stores/auth.store";
 import { useUploadStore } from "../stores/upload.store";
 import FeedBox from "src/components/FeedBox.vue";
+import UploadBox from "src/components/UploadBox.vue";
 
 const authStore = useAuthStore();
 const uploadStore = useUploadStore();
