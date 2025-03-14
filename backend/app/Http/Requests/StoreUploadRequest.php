@@ -19,7 +19,7 @@ class StoreUploadRequest extends FormRequest
              'path' => 'string',
              'type' => 'string',
              'size' => 'string',
-             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'likes' => 'integer',
             'saves' => 'integer',
             'shares' => 'integer',
